@@ -1,7 +1,7 @@
 ﻿namespace CarDealer.Helper
 {
-    public class ConfigHelper
+    public static class ConfigHelper
     {
-        
+        public static string ConnectionString { get; set; }
     }
 }
