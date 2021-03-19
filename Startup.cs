@@ -7,7 +7,11 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Threading.Tasks;
+using CarDealer.Helper;
+using CarDealer.Models.Entities;
+using CarDealer.Repository.Cars;
 
 namespace CarDealer
 {
@@ -24,6 +28,9 @@ namespace CarDealer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddTransient<ICarRepository, CarReository>();
+            ConfigHelper.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
