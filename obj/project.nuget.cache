@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fyCRqBpqIGu+e+hIaoSjPjLTk/2+K540IPlt7XPNkTJicY37K2s/VZuX9PiLZScPlr0rxuuwxXsPtuSuvK792A==",
+  "dgSpecHash": "g2GSmOzrCky885e0Ia48AQsROBu68FHV9zr5N8dBhv3m0x2L70eIZxcRdMOK/CM9GtDAFnVJGmBT5p90jpmCLA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\CarDealer\\CarDealer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512"
+  ],
   "logs": []
 }

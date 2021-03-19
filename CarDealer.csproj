@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Informations" />
+  </ItemGroup>
+
 </Project>
