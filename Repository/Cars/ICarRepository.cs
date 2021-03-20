@@ -9,5 +9,6 @@ namespace CarDealer.Repository.Cars
         Task<IEnumerable<Car>> GetCars();
         Task<Car> GetCar(int id);
         Task<bool> UpdateCar(Car car);
+        Task<bool> AddCar(Car car);
     }
 }

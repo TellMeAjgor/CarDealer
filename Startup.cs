@@ -31,6 +31,7 @@ namespace CarDealer
             services.AddControllersWithViews();
             services.AddSingleton(Configuration);
             services.AddTransient<ICarRepository, CarReository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
             {
                 ProgressBar = false,

@@ -1,64 +1,84 @@
-﻿@model CarDealer.Models.Entities.Car
+﻿@model CarDealer.Models.View.CarVM
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+@if (Model.Id != 0)
+{
+    <h1>Edit</h1>
+}
+else
+{
+    <h1>Add</h1>
+}
+
 
 @using (Html.BeginForm())
- {
+{
     <div class="row g-3">
         <div class="col-sm-6">
             @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Brand, "" , new { @class = "text-danger" })
         </div>
 
         <div class="col-sm-6">
             @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-sm-6">
             @Html.LabelFor(model => model.HorsePower, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HorsePower, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-sm-6">
             @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Mileage, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-sm-6">
             @Html.LabelFor(model => model.Vin, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.Vin, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Vin, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-12 mt-1">
+            @Html.LabelFor(model => model.Condition, htmlAttributes: new { @class = "form-label" })
             <select class="form-select" aria-label="What's condition of your car?" asp-for="@Model.Condition" asp-items="Html.GetEnumSelectList<CarDealer.Models.Enums.Conditions>()">
             </select>
+            @Html.ValidationMessageFor(model => model.Condition, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-sm-6">
             @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-sm-6">
             @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "form-label" })
             @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-12 mt-1">
+            @Html.LabelFor(model => model.Drive, htmlAttributes: new { @class = "form-label" })
             <select class="form-select" aria-label="Choose one drive" asp-for="@Model.Drive" asp-items="Html.GetEnumSelectList<CarDealer.Models.Enums.Drives>()">
             </select>
+            @Html.ValidationMessageFor(model => model.Drive, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-12 mt-1">
             <div class="form-group">
                 <label>Description</label>
-                @Html.TextAreaFor(model => model.Description, new  { @class = "form-control", @rows=3, cols=30})
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = 3, cols = 30 })
             </div>
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-12 text-right">
@@ -66,4 +86,4 @@
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </div>
- }
+}
