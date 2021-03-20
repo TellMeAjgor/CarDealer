@@ -1,0 +1,69 @@
+﻿@model CarDealer.Models.Entities.Car
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm())
+ {
+    <div class="row g-3">
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.HorsePower, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Vin, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Vin, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-12 mt-1">
+            <select class="form-select" aria-label="What's condition of your car?" asp-for="@Model.Condition" asp-items="Html.GetEnumSelectList<CarDealer.Models.Enums.Conditions>()">
+            </select>
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="col-12 mt-1">
+            <select class="form-select" aria-label="Choose one drive" asp-for="@Model.Drive" asp-items="Html.GetEnumSelectList<CarDealer.Models.Enums.Drives>()">
+            </select>
+        </div>
+
+        <div class="col-12 mt-1">
+            <div class="form-group">
+                <label>Description</label>
+                @Html.TextAreaFor(model => model.Description, new  { @class = "form-control", @rows=3, cols=30})
+            </div>
+        </div>
+
+        <div class="col-md-12 text-right">
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Index", "Car")';return false;">Back</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+ }

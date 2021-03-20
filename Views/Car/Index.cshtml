@@ -32,7 +32,10 @@
                 <td>@Html.DisplayFor(car => item.Color)</td>
                 <td>@Html.DisplayFor(car => item.Condition)</td>
                 <td>
-                    <i class="bi bi-pencil-fill edit"></i>
+                    <a href="@Url.Action("Edit", "Car", new { id = item.Id})">
+                        <i class="bi bi-pencil-fill edit"></i>
+                    </a>
+                    
                     <i class="bi bi-trash-fill delete"></i>
                 </td>
             </tr>
