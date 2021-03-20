@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using CarDealer.Helper;
 using CarDealer.Models.Entities;
 using CarDealer.Repository.Cars;
+using NToastNotify;
 
 namespace CarDealer
 {
@@ -28,8 +29,14 @@ namespace CarDealer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton(Configuration);
             services.AddTransient<ICarRepository, CarReository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
+            {
+                ProgressBar = false,
+                PositionClass = ToastPositions.BottomCenter
+            });
             ConfigHelper.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
         }
 
@@ -52,6 +59,8 @@ namespace CarDealer
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseNToastNotify();
 
             app.UseEndpoints(endpoints =>
             {
