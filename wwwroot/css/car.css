@@ -9,4 +9,9 @@
 
 .delete {
     color: #bd2130;
+}  
+
+.logo {
+    user-select: none;
 }
+
