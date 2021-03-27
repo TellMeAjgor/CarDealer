@@ -58,11 +58,11 @@ namespace CarDealer.Controllers
 
             return RedirectToAction("Index");
         }
-
+        
         [HttpDelete]
-        public async Task<IActionResult> Delete(int Id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await _repository.DeleteCar(Id);
+            var result = await _repository.DeleteCar(id);
             return Ok(result);
         }
     }
