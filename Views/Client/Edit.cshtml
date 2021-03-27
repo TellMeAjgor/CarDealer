@@ -1,0 +1,68 @@
+﻿@model CarDealer.Models.View.ClientVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if (Model.Id != 0)
+{
+    <h1>Edit</h1>
+}
+else
+{
+    <h1>Add</h1>
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="row g-3">
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "" , new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-12 mt-1">
+            @Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "form-label" })
+            <select class="form-select" aria-label="What's your gender?" asp-for="@Model.Sex" asp-items="Html.GetEnumSelectList<CarDealer.Models.Enums.Sex>()">
+            </select>
+            @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+        </div>
+        
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+        
+        <div class="col-md-12 text-right">
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Index", "Client")';return false;">Back</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+}

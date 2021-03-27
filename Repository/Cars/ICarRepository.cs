@@ -10,6 +10,6 @@ namespace CarDealer.Repository.Cars
         Task<Car> GetCar(int id);
         Task<bool> UpdateCar(Car car);
         Task<bool> AddCar(Car car);
-        Task<bool> DeleteCar(int Id);
+        Task<bool> DeleteCar(int id);
     }
 }

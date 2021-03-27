@@ -13,6 +13,7 @@ namespace CarDealer.MappingProfile
         public AutoMapperProfile()
         {
             CreateMap<CarVM, Car>().ReverseMap();
+            CreateMap<ClientVM, Client>().ReverseMap();
         }
     }
 }

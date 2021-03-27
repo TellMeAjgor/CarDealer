@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using CarDealer.Helper;
 using CarDealer.Models.Entities;
 using CarDealer.Repository.Cars;
+using CarDealer.Repository.Clients;
 using NToastNotify;
 
 namespace CarDealer
@@ -31,6 +32,7 @@ namespace CarDealer
             services.AddControllersWithViews();
             services.AddSingleton(Configuration);
             services.AddTransient<ICarRepository, CarReository>();
+            services.AddTransient<IClientRepository, ClientRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
             {

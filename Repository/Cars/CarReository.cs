@@ -37,11 +37,11 @@ namespace CarDealer.Repository.Cars
             }
         }
 
-        public async Task<bool> DeleteCar(int Id)
+        public async Task<bool> DeleteCar(int id)
         {
             using (IDbConnection context = new SqlConnection(ConfigHelper.ConnectionString))
             {
-                var query = $"DELETE FROM Cars WHERE Id={Id}";
+                var query = $"DELETE FROM Cars WHERE Id={id}";
                 var result = await context.ExecuteAsync(query);
                 return result > 0;
             }
